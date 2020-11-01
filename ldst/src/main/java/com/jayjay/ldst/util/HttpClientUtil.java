@@ -41,13 +41,13 @@ public class HttpClientUtil {
                 response = httpClient.execute(httpGet);
         } catch (IOException e) {
             e.printStackTrace();
-            HttpClientUtil.get(url);
+//            HttpClientUtil.get(url);
         }
         String result = "";
         if(response.getStatusLine().getStatusCode() == 200) {
             //获取返回结果中的实体
             HttpEntity entity = response.getEntity();
-            result = EntityUtils.toString(entity);
+            result = EntityUtils.toString(entity,"UTF-8");
         }
         response.close();
         httpClient.close();
@@ -98,17 +98,19 @@ public class HttpClientUtil {
     }
 
     public static void setConfig(HttpGet httpGet){
-        httpGet.setHeader("Referer", "https://www.mzitu.com/");
+//        httpGet.setHeader("Referer", "https://www.mzitu.com/");
+        httpGet.setHeader("Upgrade-Insecure-Requests", "1");
         httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4270.0 Safari/537.36");
 
-        HttpHost httoHost = new HttpHost("14.20.235.107",9797);
+//        HttpHost httoHost = new HttpHost("14.20.235.107",9797);
 //        HttpHost httoHost = new HttpHost("123.55.102.36",9999);
-//        HttpHost httoHost = new HttpHost("27.43.187.118",8999);
+//        HttpHost httoHost = new HttpHost("180.160.55.97",37805);
+//        HttpHost httoHost = new HttpHost("61.163.32.88",3128);
         httpGet.setConfig(RequestConfig.custom()
                 .setConnectionRequestTimeout(5000)
                 .setConnectTimeout(10000)
                 .setSocketTimeout(10000)
-                .setProxy(httoHost)
+//                .setProxy(httoHost)
                 .build());
 
     }

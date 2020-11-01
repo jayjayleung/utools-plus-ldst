@@ -23,15 +23,17 @@ import java.util.List;
  */
 public class Test {
     //声明需要爬取的网址
-    static String URL="https://www.mzitu.com/page/1/";
+//    static String URL="https://www.mzitu.com/page/1/";
+    static String URL="http://www.bky59.com/";
 //    static String URL="https://www.google.com/";
 
     //主函数入口
     public static void main(String args[]) throws IOException {
         String result = HttpClientUtil.get(URL);
 
-        System.out.println(result);
-//        Document doc = Jsoup.parse(result);
+//        System.out.println(result);
+        Document doc = Jsoup.parse(result);
+        System.out.println(doc);
 //        Elements postlist = doc.select(".postlist");
 ////        Elements nav = doc.select(".nav-links");
 ////        System.out.println(JsoupUtil.getCoverPageNumber(nav.html()));
