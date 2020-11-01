@@ -101,11 +101,13 @@ public class HttpClientUtil {
         httpGet.setHeader("Referer", "https://www.mzitu.com/");
         httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4270.0 Safari/537.36");
 
-        HttpHost httoHost = new HttpHost("zs-02.yuyu.cool",18910);
+        HttpHost httoHost = new HttpHost("14.20.235.107",9797);
+//        HttpHost httoHost = new HttpHost("123.55.102.36",9999);
+//        HttpHost httoHost = new HttpHost("27.43.187.118",8999);
         httpGet.setConfig(RequestConfig.custom()
-                .setConnectionRequestTimeout(100000)
-                .setConnectTimeout(100000)
-                .setSocketTimeout(100000)
+                .setConnectionRequestTimeout(5000)
+                .setConnectTimeout(10000)
+                .setSocketTimeout(10000)
                 .setProxy(httoHost)
                 .build());
 

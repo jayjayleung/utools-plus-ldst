@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="error">
+    <!-- 先定义所有的appender -->
+    <appenders>
+        <!-- 这个输出控制台的配置 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- 控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+            <ThresholdFilter level="debug" onMatch="ACCEPT"
+                             onMismatch="DENY" />
+            <!-- 这个都知道是输出日志的格式 -->
+            <PatternLayout
+                    pattern="{&quot;@timestamp&quot;:&quot;%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}&quot;,&quot;level&quot;:&quot;%p&quot;,&quot;class&quot;:&quot;%l&quot;,&quot;Content&quot;:&quot;%m%ex&quot;}%n " />
+        </Console>
+
+        <!-- 添加过滤器ThresholdFilter,可以有选择的输出某个级别以上的类别 onMatch="ACCEPT" onMismatch="DENY"意思是匹配就接受,否则直接拒绝 -->
+        <RollingFile name="ERROR" fileName="./logs/ldst-error.log"
+                     filePattern="./logs/error/error-%d{yyyy-MM-dd}.log">
+            <ThresholdFilter level="error" onMatch="ACCEPT"
+                             onMismatch="DENY" />
+            <PatternLayout
+                    pattern="{&quot;@timestamp&quot;:&quot;%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}&quot;,&quot;level&quot;:&quot;%p&quot;,&quot;class&quot;:&quot;%l&quot;,&quot;Content&quot;:&quot;%m%ex&quot;}%n " />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true"
+                                           interval="1" />
+            </Policies>
+        </RollingFile>
+
+        <!-- 这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+        <RollingFile name="RollingFile" fileName="./logs/ldst.log"
+                     filePattern="./logs/archive/cmsppc-%d{yyyy-MM-dd}.log">
+
+            <ThresholdFilter level="info" onMatch="ACCEPT"
+                             onMismatch="DENY" />
+
+            <PatternLayout
+                    pattern="{&quot;@timestamp&quot;:&quot;%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}&quot;,&quot;level&quot;:&quot;%p&quot;,&quot;class&quot;:&quot;%l&quot;,&quot;Content&quot;:&quot;%m%ex&quot;}%n " />
+
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true"
+                                           interval="1" /><!-- <SizeBasedTriggeringPolicy size="128KB" /> -->
+            </Policies>
+        </RollingFile>
+    </appenders>
+
+    <!-- 然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
+    <loggers>
+        <!-- 建立一个默认的root的logger -->
+        <root level="info">
+            <appender-ref ref="RollingFile" />
+            <!---->  <appender-ref ref="Console" />
+            <appender-ref ref="ERROR" />
+        </root>
+
+
+    </loggers>
+</configuration>
