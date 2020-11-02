@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author JayJay
- * @since 2020-11-01
+ * @since 2020-11-02
  */
 public interface ILdstImgService extends IService<LdstImg> {
 

@@ -72,6 +72,20 @@
             <version>1.8.3</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>us.codecraft</groupId>-->
+<!--            <artifactId>webmagic-core</artifactId>-->
+<!--            <version>0.5.3</version>-->
+<!--        </dependency>-->
+
+        <!--   jsoup xpath支持扩展解析器     -->
+        <dependency>
+            <groupId>cn.wanghaomiao</groupId>
+            <artifactId>JsoupXpath</artifactId>
+            <version>0.3.2</version>
+        </dependency>
+
+
 
         <!-- mysql连接器 -->
         <dependency>
@@ -90,13 +104,13 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.2.0</version>
+            <version>3.1.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.3.0</version>
+            <version>3.1.0</version>
         </dependency>
 
         <!-- 模板引擎 -->
@@ -111,6 +125,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

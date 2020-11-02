@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author JayJay
- * @since 2020-11-01
+ * @since 2020-11-02
  */
 public interface LdstCoverMapper extends BaseMapper<LdstCover> {
 

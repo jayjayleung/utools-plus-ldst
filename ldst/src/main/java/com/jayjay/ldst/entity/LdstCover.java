@@ -1,7 +1,12 @@
 package com.jayjay.ldst.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -9,16 +14,17 @@ import java.io.Serializable;
  * </p>
  *
  * @author JayJay
- * @since 2020-11-01
+ * @since 2020-11-02
  */
 public class LdstCover implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 主键
      */
-      private String id;
+    @TableId(type = IdType.UUID)
+    private String id;
 
     /**
      * 标题
@@ -26,14 +32,19 @@ public class LdstCover implements Serializable {
     private String title;
 
     /**
-     * 封面
-     */
-    private String cover;
-
-    /**
      * 封面图片url
      */
     private String coverImgUrl;
+
+    /**
+     * 封面图片原始url
+     */
+    private String coverOriginImgUrl;
+
+    /**
+     * 原始详情链接
+     */
+    private String originUrl;
 
     /**
      * 图片数量
@@ -46,6 +57,11 @@ public class LdstCover implements Serializable {
     private String type;
 
     /**
+     * 是否最新
+     */
+    private Boolean newest;
+
+    /**
      * 图片日期
      */
     private LocalDateTime date;
@@ -55,10 +71,8 @@ public class LdstCover implements Serializable {
      */
     private LocalDateTime createDate;
 
-    /**
-     * 原始详情链接
-     */
-    private String originUrl;
+    @TableField(exist = false)
+    private List<LdstImg> ldstImgList;
 
 
     public String getId() {
@@ -77,20 +91,28 @@ public class LdstCover implements Serializable {
         this.title = title;
     }
 
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
     public String getCoverImgUrl() {
         return coverImgUrl;
     }
 
     public void setCoverImgUrl(String coverImgUrl) {
         this.coverImgUrl = coverImgUrl;
+    }
+
+    public String getCoverOriginImgUrl() {
+        return coverOriginImgUrl;
+    }
+
+    public void setCoverOriginImgUrl(String coverOriginImgUrl) {
+        this.coverOriginImgUrl = coverOriginImgUrl;
+    }
+
+    public String getOriginUrl() {
+        return originUrl;
+    }
+
+    public void setOriginUrl(String originUrl) {
+        this.originUrl = originUrl;
     }
 
     public Integer getTotal() {
@@ -109,6 +131,14 @@ public class LdstCover implements Serializable {
         this.type = type;
     }
 
+    public Boolean getNewest() {
+        return newest;
+    }
+
+    public void setNewest(Boolean newest) {
+        this.newest = newest;
+    }
+
     public LocalDateTime getDate() {
         return date;
     }
@@ -125,12 +155,12 @@ public class LdstCover implements Serializable {
         this.createDate = createDate;
     }
 
-    public String getOriginUrl() {
-        return originUrl;
+    public List<LdstImg> getLdstImgList() {
+        return ldstImgList;
     }
 
-    public void setOriginUrl(String originUrl) {
-        this.originUrl = originUrl;
+    public void setLdstImgList(List<LdstImg> ldstImgList) {
+        this.ldstImgList = ldstImgList;
     }
 
     @Override
@@ -138,13 +168,14 @@ public class LdstCover implements Serializable {
         return "LdstCover{" +
         "id=" + id +
         ", title=" + title +
-        ", cover=" + cover +
         ", coverImgUrl=" + coverImgUrl +
+        ", coverOriginImgUrl=" + coverOriginImgUrl +
+        ", originUrl=" + originUrl +
         ", total=" + total +
         ", type=" + type +
+        ", new=" + newest +
         ", date=" + date +
         ", createDate=" + createDate +
-        ", originUrl=" + originUrl +
         "}";
     }
 }

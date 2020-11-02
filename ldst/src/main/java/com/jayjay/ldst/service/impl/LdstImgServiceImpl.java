@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author JayJay
- * @since 2020-11-01
+ * @since 2020-11-02
  */
 @Service
 public class LdstImgServiceImpl extends ServiceImpl<LdstImgMapper, LdstImg> implements ILdstImgService {

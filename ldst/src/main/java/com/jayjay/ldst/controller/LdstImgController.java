@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author JayJay
- * @since 2020-11-01
+ * @since 2020-11-02
  */
 @RestController
 @RequestMapping("/ldst-img")
