@@ -1,7 +1,11 @@
 package com.jayjay.ldst.service;
 
+import com.jayjay.ldst.config.Page;
+import com.jayjay.ldst.entity.LdstCover;
 import com.jayjay.ldst.entity.LdstImg;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ILdstImgService extends IService<LdstImg> {
 
+    Page<LdstImg> getPageSimple(Page<LdstImg> page);
+
+    List<LdstImg> getList(String id);
 }

@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0b90d3"],{"30ff":function(n,t,e){"use strict";e.r(t);var c=function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",[n._v(" 公司属性 ")])},o=[],u={components:{},props:{},data:function(){return{}},created:function(){},mounted:function(){},methods:{},computed:{},watch:{}},r=u,a=e("2877"),d=Object(a["a"])(r,c,o,!1,null,"273b0b26",null);t["default"]=d.exports}}]);
-//# sourceMappingURL=chunk-2d0b90d3.64c1fc0e.js.map

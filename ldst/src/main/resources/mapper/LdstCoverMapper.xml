@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jayjay.ldst.mapper.LdstCoverMapper">
+    <!-- 公用的select语句 -->
+    <sql id="select_column">
+         c.id,c.title,c.cover_img_url,c.cover_origin_img_url,c.origin_url,c.total,c.type,c.newest,c.date,c.create_date
+    </sql>
+
+    <sql id="from_table">
+        from ldst_cover c
+    </sql>
+
+    <!--公用的where语句-->
+    <sql id="where_clause">
+        <where>
+            1 = 1
+            <if test="type!=null and type!=''">
+                AND c.type = #{type}
+            </if>
+
+            <if test="title!=null and title!=''">
+                AND c.title = #{title}
+            </if>
+        </where>
+    </sql>
+
+    <!-- 通过条件获取集合 -->
+    <select id="findListByMap" parameterType="map" resultType="com.jayjay.ldst.entity.LdstCover">
+        select
+        <include refid="select_column"/>
+        <include refid="from_table"/>
+        <include refid="where_clause"/>
+        <if test="sort!=null">
+            order by ${sort}
+        </if>
+        <if test="dir!=null">
+            ${dir}
+        </if>
+        <if test="startNum!=null and pageSize!=null">
+            limit ${startNum},${pageSize}
+        </if>
+    </select>
+
+    <!-- 根据Id获取单个对象 -->
+    <select id="get" parameterType="string" resultType="com.jayjay.ldst.entity.LdstCover">
+        select
+        <include refid="select_column"/>
+        <include refid="from_table"/>
+        where id=#{id}
+    </select>
+
+    <!-- 通过条件获取记录数 -->
+    <select id="getCount" parameterType="map" resultType="int">
+        select count(id)
+        <include refid="from_table"/>
+        <include refid="where_clause"/>
+    </select>
 
 </mapper>

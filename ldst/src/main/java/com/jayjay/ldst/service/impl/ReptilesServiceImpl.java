@@ -57,14 +57,6 @@ public class ReptilesServiceImpl implements ReptilesService {
     @Transactional
     public List<LdstCover> reptliesNewest() throws Exception {
         String result = HttpClientUtil.get(LdstUrl.HOME);
-        LocalDateTime now = LocalDateTime.now();
-        List<LdstCover> listByDate = ldstCoverService.findListByDate(now.minusDays(7), now.plusDays(2));
-        if(!CollectionUtils.isEmpty(listByDate)){
-            listByDate.forEach(item->{
-                item.setNewest(false);
-                ldstCoverService.updateById(item);
-            });
-        }
         logger.info("开始爬取最新数据......");
         Document doc = Jsoup.parse(result);
         Elements newList = doc.select("body > div.main > div > div:nth-child(3) > div.tab_zt > div > div > ul").select("li");
@@ -172,9 +164,9 @@ public class ReptilesServiceImpl implements ReptilesService {
                     ldstCovers.add(ldstCover);
 
                     logger.info("爬取" + title + "的完成.....");
-                    Random random = new Random();
-                    int randomInt = random.nextInt(10);
-                    Thread.sleep(randomInt);
+//                    Random random = new Random();
+//                    int randomInt = random.nextInt(10);
+//                    Thread.sleep(randomInt);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -1,19 +1,13 @@
 package com.jayjay.ldst.httpclient;
 
 import cn.wanghaomiao.xpath.exception.XpathSyntaxErrorException;
-import cn.wanghaomiao.xpath.model.JXDocument;
-import cn.wanghaomiao.xpath.model.JXNode;
 import com.jayjay.ldst.util.HttpClientUtil;
 import com.jayjay.ldst.util.JsoupUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.net.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Copyright © 2020-ESS

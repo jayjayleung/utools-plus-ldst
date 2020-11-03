@@ -1,7 +1,8 @@
 package com.jayjay.ldst.service;
 
-import com.jayjay.ldst.entity.LdstCover;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jayjay.ldst.config.Page;
+import com.jayjay.ldst.entity.LdstCover;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,5 +19,9 @@ public interface ILdstCoverService extends IService<LdstCover> {
 
     List<LdstCover> findListByTitle(String title);
 
+    List<LdstCover> findListByType(String title);
+
     List<LdstCover> findListByDate(LocalDateTime start, LocalDateTime end);
+
+    Page<LdstCover> getPageSimple(Page<LdstCover> page);
 }

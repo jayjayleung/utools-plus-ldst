@@ -1,0 +1,20 @@
+.el-dialog__wrapper .item+.item{
+    /* border-left: 1px solid #e1e1e1;  */
+}
+.title{
+    line-height: 24px;
+    padding: 2.5px 0;
+    font-size: 12px;
+    color: #84776f;
+    margin-right: 10px;
+    display: inline-block;
+    width: 100%;
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.item{
+    padding: 0 10px;
+    margin: 10px 0;
+}
