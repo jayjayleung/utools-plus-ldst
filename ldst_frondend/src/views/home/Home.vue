@@ -13,22 +13,21 @@
     </el-menu>
     <div class="main-body">
       <el-row gutter="20">
-        <el-col
-          :span="6"
-          v-for="item in coverList"
-          :key="item.id"
-        >
-          <el-card :body-style="{ padding: '0px' }" shadow="hover" 
-            @click="goInfo(item.id)">
-            <img :src="url + item.coverImgUrl" class="image" />
-            <div style="padding: 14px">
-              <span>{{ item.title }}</span>
-              <div class="bottom clearfix">
-                <time class="time">{{ item.date }}</time>
-                <el-button type="text" class="button" @click="goInfo(item.id)">操作按钮</el-button>
+        <el-col :span="6" v-for="item in coverList" :key="item.id">
+          <div @click="goInfo(item.id)">
+            <el-card :body-style="{ padding: '0px' }" shadow="hover">
+              <img :src="url + item.coverImgUrl" class="image" />
+              <div style="padding: 14px">
+                <span>{{ item.title }}</span>
+                <div class="bottom clearfix">
+                  <time class="time">{{ item.date }}</time>
+                  <el-button type="text" class="button" @click="goInfo(item.id)"
+                    >操作按钮</el-button
+                  >
+                </div>
               </div>
-            </div>
-          </el-card>
+            </el-card>
+          </div>
         </el-col>
       </el-row>
     </div>

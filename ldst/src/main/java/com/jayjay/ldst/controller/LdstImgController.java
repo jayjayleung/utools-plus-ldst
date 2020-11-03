@@ -7,11 +7,7 @@ import com.jayjay.ldst.entity.LdstCover;
 import com.jayjay.ldst.entity.LdstImg;
 import com.jayjay.ldst.service.ILdstImgService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,7 +33,7 @@ public class LdstImgController {
     }
 
 
-    @PostMapping("list-all")
+    @GetMapping("list-all")
     public ResultModel listAll(String id){
         List<LdstImg> list = ldstImgService.getList(id);
         return ResultModel.Success(list);

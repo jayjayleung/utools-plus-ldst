@@ -21,7 +21,7 @@ const imgList = (params) => {
     return request({
         url:'/ldst-img/list-all',
         method: 'get',
-        data:{...params}
+        data:params
     })
 }
 
