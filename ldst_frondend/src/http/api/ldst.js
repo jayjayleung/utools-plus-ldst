@@ -13,7 +13,7 @@ const coverInfo = (params) => {
     return request({
         url:'/ldst-cover/get',
         method: 'get',
-        data: {...params}
+        params: {...params}
     })
 }
 
@@ -21,7 +21,7 @@ const imgList = (params) => {
     return request({
         url:'/ldst-img/list-all',
         method: 'get',
-        data:params
+        params:{...params}
     })
 }
 
