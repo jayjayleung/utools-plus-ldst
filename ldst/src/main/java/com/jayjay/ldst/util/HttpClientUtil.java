@@ -34,7 +34,7 @@ public class HttpClientUtil {
         //使用HttpGet的方式请求网址
         HttpGet httpGet = new HttpGet(url);
 
-        setConfig(httpGet);
+        setConfig2Html(httpGet);
         //获取网址的返回结果
         CloseableHttpResponse response = null;
         try {
@@ -58,7 +58,7 @@ public class HttpClientUtil {
         //建立一个新的请求客户端
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(url);
-        setConfig(httpGet);
+        setConfig2Img(httpGet);
         CloseableHttpResponse response = httpClient.execute(httpGet);
         String value = response.getEntity().getContentType().getValue().split("/")[1];
 //        System.out.println(value);
@@ -79,7 +79,7 @@ public class HttpClientUtil {
         //建立一个新的请求客户端
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(url);
-        setConfig(httpGet);
+        setConfig2Img(httpGet);
         CloseableHttpResponse response = httpClient.execute(httpGet);
         String value = response.getEntity().getContentType().getValue().split("/")[1];
 //        System.out.println(value);
@@ -97,8 +97,26 @@ public class HttpClientUtil {
         return fileName;
     }
 
-    public static void setConfig(HttpGet httpGet){
-//        httpGet.setHeader("Referer", "https://www.mzitu.com/");
+    public static void setConfig2Html(HttpGet httpGet){
+        httpGet.setHeader("Referer", "http://www.win4000.com/meitu.html");
+        httpGet.setHeader("Upgrade-Insecure-Requests", "1");
+        httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4270.0 Safari/537.36");
+
+//        HttpHost httoHost = new HttpHost("14.20.235.107",9797);
+//        HttpHost httoHost = new HttpHost("123.55.102.36",9999);
+//        HttpHost httoHost = new HttpHost("180.160.55.97",37805);
+//        HttpHost httoHost = new HttpHost("61.163.32.88",3128);
+        httpGet.setConfig(RequestConfig.custom()
+                .setConnectionRequestTimeout(5000)
+                .setConnectTimeout(10000)
+                .setSocketTimeout(10000)
+//                .setProxy(httoHost)
+                .build());
+
+    }
+
+    public static void setConfig2Img(HttpGet httpGet){
+        httpGet.setHeader("Referer", "http://www.win4000.com");
         httpGet.setHeader("Upgrade-Insecure-Requests", "1");
         httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4270.0 Safari/537.36");
 

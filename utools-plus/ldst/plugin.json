@@ -1,0 +1,15 @@
+{
+	"pluginName": "来点色图",
+	"description": "某个人要的需求",
+	"main": "/dist/index.html",
+    "version": "0.0.1",
+    "author":"jayjayl",
+    "logo":"img/logo.jpg",
+	"features": [
+		{
+		  "code": "ldst",
+		  "explain": "laidiansetu",
+			"cmds":["ldst", "来点色图"]
+		}
+	]
+}

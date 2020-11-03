@@ -164,9 +164,9 @@ public class ReptilesServiceImpl implements ReptilesService {
                     ldstCovers.add(ldstCover);
 
                     logger.info("爬取" + title + "的完成.....");
-//                    Random random = new Random();
-//                    int randomInt = random.nextInt(10);
-//                    Thread.sleep(randomInt);
+                    Random random = new Random();
+                    int randomInt = random.nextInt(6);
+                    Thread.sleep(randomInt);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

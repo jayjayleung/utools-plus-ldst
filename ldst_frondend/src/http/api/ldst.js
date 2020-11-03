@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Author: jayjay
+ * @Github: 
+ * @Date: 2020-11-03 21:27:38
+ * @LastEditors: jayjay
+ * @LastEditTime: 2020-11-04 01:39:44
+ */
 import request from '@/http/config';
 
 
@@ -33,9 +41,19 @@ const imgInfo = (params) => {
     })
 }
 
+
+const getTypes = (params) => {
+    return request({
+        url:'/ldst-cover/get-types',
+        method: 'get',
+        data:{...params}
+    })
+}
+
 export {
     coverList,
     coverInfo,
     imgList,
     imgInfo,
+    getTypes
 }

@@ -24,4 +24,6 @@ public interface ILdstCoverService extends IService<LdstCover> {
     List<LdstCover> findListByDate(LocalDateTime start, LocalDateTime end);
 
     Page<LdstCover> getPageSimple(Page<LdstCover> page);
+
+    List<String> selectType();
 }

@@ -20,4 +20,6 @@ public interface LdstCoverMapper extends BaseMapper<LdstCover> {
     int getCount(Map<String, Object> m);
 
     LdstCover get(String id);
+
+    List<String> selectType();
 }

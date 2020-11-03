@@ -56,4 +56,9 @@
         <include refid="where_clause"/>
     </select>
 
+
+    <select id="selectType" resultType="String">
+        select DISTINCT type from ldst_cover;
+    </select>
+
 </mapper>

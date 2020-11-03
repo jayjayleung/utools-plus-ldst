@@ -65,4 +65,11 @@ public class LdstCoverServiceImpl extends ServiceImpl<LdstCoverMapper, LdstCover
         page.setTotalSize(count);
         return page;
     }
+
+
+    @Override
+    public List<String> selectType() {
+        List<String> strings = this.baseMapper.selectType();
+        return strings;
+    }
 }
