@@ -18,8 +18,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author ZhangJJ
- * @create 2019/7/16
+ * @author JayJay
+ * @create 2020/11/02
  */
 public class CodeGenerator {
     public static String scanner(String tip) {

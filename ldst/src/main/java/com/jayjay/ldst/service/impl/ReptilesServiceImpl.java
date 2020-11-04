@@ -49,7 +49,6 @@ public class ReptilesServiceImpl implements ReptilesService {
 
     /**
      * 爬取最新的图片
-     *
      * @return
      * @throws Exception
      */
@@ -67,6 +66,12 @@ public class ReptilesServiceImpl implements ReptilesService {
         return ldstCovers;
     }
 
+    /**
+     * 根据url爬取数据
+     * @param url
+     * @return
+     * @throws Exception
+     */
     @Override
     @Transactional
     public List<LdstCover> reptliesByUrl(String url) throws Exception {
@@ -93,6 +98,11 @@ public class ReptilesServiceImpl implements ReptilesService {
         return ldstCovers;
     }
 
+    /**
+     * 爬取所有数据
+     * @return
+     * @throws Exception
+     */
     @Override
     public List<LdstCover> reptliesAll() throws Exception {
         List<LdstCover> ldstCovers = new ArrayList<>();
@@ -110,6 +120,11 @@ public class ReptilesServiceImpl implements ReptilesService {
     }
 
 
+    /**
+     * 进行解析获取数据
+     * @param elements
+     * @return
+     */
     private List<LdstCover> doReptiles(Elements elements){
         List<LdstCover> ldstCovers = new ArrayList<>();
         if (!CollectionUtils.isEmpty(elements)) {
@@ -172,23 +187,15 @@ public class ReptilesServiceImpl implements ReptilesService {
                 }
             });
 
-//            ldstCovers.forEach(item -> {
-//                boolean save = ldstCoverService.save(item);
-//                if (save) {
-//                    List<LdstImg> ldstImgList = item.getLdstImgList();
-//                    if (!CollectionUtils.isEmpty(ldstImgList)) {
-//                        ldstImgList.forEach(itm -> {
-//                            itm.setCoverId(item.getId());
-//                            ldstImgService.save(itm);
-//                        });
-//                    }
-//                }
-//            });
 
         }
         return ldstCovers;
     }
 
+    /**
+     * 保存数据
+     * @param ldstCovers
+     */
     public void saveData(List<LdstCover> ldstCovers){
         logger.info("开始保存数据.....");
         ldstCovers.forEach(item -> {

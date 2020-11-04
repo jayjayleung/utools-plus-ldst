@@ -27,6 +27,12 @@ import java.util.UUID;
  */
 public class HttpClientUtil {
 
+    /**
+     * 获取静态网页
+     * @param url
+     * @return
+     * @throws IOException
+     */
     public static String get(String url) throws IOException {
         //建立一个新的请求客户端
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -54,6 +60,13 @@ public class HttpClientUtil {
         return result;
     }
 
+    /**
+     * 下载图片
+     * @param url
+     * @return
+     * @throws IOException
+     */
+    @Deprecated
     public static String getImg(String url) throws IOException {
         //建立一个新的请求客户端
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -75,6 +88,13 @@ public class HttpClientUtil {
         return "";
     }
 
+    /**
+     * 下载图片
+     * @param url
+     * @param path
+     * @return
+     * @throws IOException
+     */
     public static String getImg(String url,String path) throws IOException {
         //建立一个新的请求客户端
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -97,9 +117,15 @@ public class HttpClientUtil {
         return fileName;
     }
 
+    /**
+     * 设置html的config
+     * @param httpGet
+     */
     public static void setConfig2Html(HttpGet httpGet){
+        //伪装域名，防封爬虫
         httpGet.setHeader("Referer", "http://www.win4000.com/meitu.html");
         httpGet.setHeader("Upgrade-Insecure-Requests", "1");
+        //伪装浏览器访问
         httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4270.0 Safari/537.36");
 
 //        HttpHost httoHost = new HttpHost("14.20.235.107",9797);
@@ -115,9 +141,15 @@ public class HttpClientUtil {
 
     }
 
+    /**
+     * 设置图片config
+     * @param httpGet
+     */
     public static void setConfig2Img(HttpGet httpGet){
+        //伪装域名，防盗链
         httpGet.setHeader("Referer", "http://www.win4000.com");
         httpGet.setHeader("Upgrade-Insecure-Requests", "1");
+        //伪装浏览器访问
         httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4270.0 Safari/537.36");
 
 //        HttpHost httoHost = new HttpHost("14.20.235.107",9797);

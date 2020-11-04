@@ -26,6 +26,11 @@ public class LdstImgController {
     @Autowired
     private ILdstImgService ldstImgService;
 
+    /**
+     * 获取Lsit，分页
+     * @param page
+     * @return
+     */
     @PostMapping("list")
     public ResultModel list(@RequestBody(required = false) Page<LdstImg> page){
         page = ldstImgService.getPageSimple(page);
@@ -33,6 +38,11 @@ public class LdstImgController {
     }
 
 
+    /**
+     * 获取所有
+     * @param id
+     * @return
+     */
     @GetMapping("list-all")
     public ResultModel listAll(String id){
         List<LdstImg> list = ldstImgService.getList(id);

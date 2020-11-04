@@ -8,8 +8,9 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author jayjay
  * @date 2020/11/1
- * @Description:
+ * @Description: mybastis-plus 分页配置，由于内存分页，不用了
  */
+@Deprecated
 @Configuration
 @ConditionalOnClass(value = {PaginationInterceptor.class})
 public class MyBatusPlusConfig {

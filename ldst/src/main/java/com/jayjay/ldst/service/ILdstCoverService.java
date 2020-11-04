@@ -17,13 +17,38 @@ import java.util.List;
  */
 public interface ILdstCoverService extends IService<LdstCover> {
 
+    /**
+     * 根据title获取
+     * @param title
+     * @return
+     */
     List<LdstCover> findListByTitle(String title);
 
+    /**
+     * 根据类型获取
+     * @param title
+     * @return
+     */
     List<LdstCover> findListByType(String title);
 
+    /**
+     * 根据时间范围获取
+     * @param start
+     * @param end
+     * @return
+     */
     List<LdstCover> findListByDate(LocalDateTime start, LocalDateTime end);
 
+    /**
+     * 分页查询
+     * @param page
+     * @return
+     */
     Page<LdstCover> getPageSimple(Page<LdstCover> page);
 
+    /**
+     * 获取类型
+     * @return
+     */
     List<String> selectType();
 }

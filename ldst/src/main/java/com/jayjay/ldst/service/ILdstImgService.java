@@ -17,7 +17,17 @@ import java.util.List;
  */
 public interface ILdstImgService extends IService<LdstImg> {
 
+    /**
+     * 分页查询
+     * @param page
+     * @return
+     */
     Page<LdstImg> getPageSimple(Page<LdstImg> page);
 
+    /**
+     * 根据cover_id获取所有
+     * @param id
+     * @return
+     */
     List<LdstImg> getList(String id);
 }

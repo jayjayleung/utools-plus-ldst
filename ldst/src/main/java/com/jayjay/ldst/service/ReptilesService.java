@@ -18,8 +18,19 @@ public interface ReptilesService {
      */
     List<LdstCover> reptliesNewest() throws Exception;
 
+    /**
+     * 根据url爬取数据
+     * @param url
+     * @return
+     * @throws Exception
+     */
     List<LdstCover> reptliesByUrl(String url) throws Exception;
 
 
+    /**
+     * 爬取所有数据
+     * @return
+     * @throws Exception
+     */
     List<LdstCover> reptliesAll() throws Exception;
 }

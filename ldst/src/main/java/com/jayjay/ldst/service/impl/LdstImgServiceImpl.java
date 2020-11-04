@@ -21,7 +21,11 @@ import java.util.Map;
  */
 @Service
 public class LdstImgServiceImpl extends ServiceImpl<LdstImgMapper, LdstImg> implements ILdstImgService {
-
+    /**
+     * 分页查询
+     * @param page
+     * @return
+     */
     @Override
     public Page<LdstImg> getPageSimple(Page<LdstImg> page) {
         int pageNum = page.getPage();
@@ -40,7 +44,11 @@ public class LdstImgServiceImpl extends ServiceImpl<LdstImgMapper, LdstImg> impl
         page.setTotalSize(count);
         return page;
     }
-
+    /**
+     * 根据cover_id获取所有
+     * @param id
+     * @return
+     */
     @Override
     public List<LdstImg> getList(String id) {
         QueryWrapper<LdstImg> wrapper = new QueryWrapper<>();

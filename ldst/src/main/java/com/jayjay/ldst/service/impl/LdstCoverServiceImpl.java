@@ -24,7 +24,12 @@ import java.util.Map;
 public class LdstCoverServiceImpl extends ServiceImpl<LdstCoverMapper, LdstCover> implements ILdstCoverService {
 
 
-
+    /**
+     * 根据title获取
+     * @param title
+     * @return
+     */
+    @Override
     public List<LdstCover> findListByTitle(String title){
         QueryWrapper<LdstCover> wrapper = new QueryWrapper<>();
         wrapper.eq("title",title);
@@ -32,21 +37,36 @@ public class LdstCoverServiceImpl extends ServiceImpl<LdstCoverMapper, LdstCover
         return list;
     }
 
-
+    /**
+     * 根据类型获取
+     * @param title
+     * @return
+     */
+    @Override
     public List<LdstCover> findListByType(String title){
         QueryWrapper<LdstCover> wrapper = new QueryWrapper<>();
         wrapper.eq("type",title);
         List<LdstCover> list = this.list(wrapper);
         return list;
     }
-
+    /**
+     * 根据时间范围获取
+     * @param start
+     * @param end
+     * @return
+     */
+    @Override
     public List<LdstCover> findListByDate(LocalDateTime start,LocalDateTime end){
         QueryWrapper<LdstCover> wrapper = new QueryWrapper<>();
         wrapper.between("date",start,end);
         List<LdstCover> list = this.list(wrapper);
         return list;
     }
-
+    /**
+     * 分页查询
+     * @param page
+     * @return
+     */
     @Override
     public Page<LdstCover> getPageSimple(Page<LdstCover> page) {
         int pageNum = page.getPage();
@@ -66,7 +86,10 @@ public class LdstCoverServiceImpl extends ServiceImpl<LdstCoverMapper, LdstCover
         return page;
     }
 
-
+    /**
+     * 获取类型
+     * @return
+     */
     @Override
     public List<String> selectType() {
         List<String> strings = this.baseMapper.selectType();

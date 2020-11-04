@@ -26,12 +26,21 @@ public class LdstCoverController {
     private ILdstCoverService ldstCoverService;
 
 
+    /**
+     * 获取list，分页
+     * @param page
+     * @return
+     */
     @PostMapping("list")
     public ResultModel list(@RequestBody(required = false) Page<LdstCover> page){
         page = ldstCoverService.getPageSimple(page);
         return ResultModel.Success(page);
     }
 
+    /**
+     * 获取类型，去重
+     * @return
+     */
     @GetMapping("get-types")
     public ResultModel getTypes(){
         List<String> strings = ldstCoverService.selectType();
