@@ -1,5 +1,5 @@
 {
-	"pluginName": "来点色图",
+	"pluginName": "来点涩图",
 	"description": "某个人要的插件",
 	"main": "/dist/index.html",
     "version": "0.0.1",
@@ -8,8 +8,8 @@
 	"features": [
 		{
 		  "code": "ldst",
-		  "explain": "来点色图",
-			"cmds":["ldst", "来点色图"]
+		  "explain": "来点涩图",
+			"cmds":["ldst", "来点涩图"]
 		}
 	]
 }
