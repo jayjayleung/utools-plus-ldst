@@ -9,7 +9,7 @@
     <el-divider></el-divider>
     <el-carousel type="card" width="890px" height="1000px" :autoplay="false">
       <el-carousel-item v-for="item in list" :key="item.id">
-        <img :src="url+item.imgUrl" />
+        <img :src="url + item.imgUrl" />
       </el-carousel-item>
     </el-carousel>
 
@@ -38,7 +38,7 @@ export default {
       url: process.env.VUE_APP_FILEURL,
       list: [],
       urls: [],
-      title:""
+      title: "",
     };
   },
   mounted() {},
@@ -54,9 +54,9 @@ export default {
       });
     },
     goBack() {
-        console.log('go back');
-        this.$router.back(-1);
-      }
+      console.log("go back");
+      this.$router.back(-1);
+    },
   },
   created() {
     // online().then(res => {

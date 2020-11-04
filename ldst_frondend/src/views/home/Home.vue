@@ -26,7 +26,7 @@
             <el-card :body-style="{ padding: '0px' }" shadow="hover">
               <img :src="url + item.coverImgUrl" class="image" />
               <div style="padding: 14px">
-                <span id="title">{{ item.title| ellipsis }}</span>
+                <span id="title">{{ item.title | ellipsis }}</span>
                 <div class="bottom clearfix">
                   <time class="time">{{ item.date | dateTime }}</time>
                   <!-- <el-button type="text" class="button" @click="goInfo(item)">操作按钮</el-button> -->
@@ -60,11 +60,15 @@
             @next-click="nextPage"
           >
           </el-pagination> -->
-          <el-pagination background layout="prev, pager, next" 
+          <el-pagination
+            background
+            layout="prev, pager, next"
             :current-page.sync="currentPage"
             @current-change="currentChange"
             @prev-click="prevPage"
-            @next-click="nextPage" :total="totalSize">
+            @next-click="nextPage"
+            :total="totalSize"
+          >
           </el-pagination>
         </el-col>
         <!-- 这个妨碍了事件触发 -->
@@ -173,14 +177,14 @@ export default {
   },
   filters: {
     // 当标题字数超出时，超出部分显示’...‘。此处限制超出8位即触发隐藏效果
-    ellipsis (value) {
-        if (!value) return ''
-        if (value.length > 15) {
-            return value.slice(0, 15) + '...'
-        }
-        return value
-    }
-},
+    ellipsis(value) {
+      if (!value) return "";
+      if (value.length > 15) {
+        return value.slice(0, 15) + "...";
+      }
+      return value;
+    },
+  },
   created() {
     console.log(process.env.VUE_APP_BASEURL);
     // console.log(this.$store.state.userInfo)
