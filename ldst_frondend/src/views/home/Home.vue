@@ -19,8 +19,8 @@
               <div style="padding: 14px">
                 <span>{{ item.title }}</span>
                 <div class="bottom clearfix">
-                  <time class="time">{{ item.date }}</time>
-                  <el-button type="text" class="button" @click="goInfo(item)">操作按钮</el-button>
+                  <time class="time">{{ item.date|dateTime }}</time>
+                  <!-- <el-button type="text" class="button" @click="goInfo(item)">操作按钮</el-button> -->
                 </div>
               </div>
             </el-card>
@@ -29,19 +29,23 @@
       </el-row>
       <el-row>
         <el-col>
-          <el-row type="flex" justify="end">
-            <el-col :span="10">
+          <el-row type="flex" justify="center">
+            <el-col :span="6">
               <el-pagination
                 background
                 :current-page="currentPage"
                 :page-sizes="pageSizeSelector"
                 layout="total, prev, pager, next,sizes"
                 :total="totalSize"
+                :page-size="pageSize"
                 @size-change="sizeChange"
                 @current-change="currentChange"
                 @prev-click="prevPage"
                 @next-click="nextPage"
               ></el-pagination>
+            </el-col>
+            <el-col :span="6">
+              <div></div>
             </el-col>
           </el-row>
         </el-col>
@@ -63,11 +67,11 @@ export default {
       //当前第几页
       currentPage: 1,
       //显示多少条
-      pageSize: 10,
+      pageSize: 8,
       //总条数
       totalSize: 0,
       //每页显示个数选择器的选项设置
-      pageSizeSelector: [10, 20, 30, 40, 50, 100],
+      pageSizeSelector: [8, 10, 20, 30, 40, 50, 100],
       type: "",
       types: [],
     };
@@ -77,7 +81,7 @@ export default {
       this.type = type;
       let param = {
         page: page,
-        pageSize: 8,
+        pageSize: this.pageSize,
         sort: "date",
         dir: "desc",
         map: {

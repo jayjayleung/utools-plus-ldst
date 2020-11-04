@@ -45,6 +45,11 @@ public class Test {
 
     }
 
+    @org.junit.Test
+    public void vee(){
+        System.out.println(0b010);
+    }
+
 
 //    //声明需要爬取的网址
 ////    static String URL="https://www.mzitu.com/page/1/";

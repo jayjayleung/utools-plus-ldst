@@ -1,6 +1,6 @@
 {
 	"pluginName": "来点色图",
-	"description": "某个人要的需求",
+	"description": "某个人要的插件",
 	"main": "/dist/index.html",
     "version": "0.0.1",
     "author":"jayjayl",
@@ -8,7 +8,7 @@
 	"features": [
 		{
 		  "code": "ldst",
-		  "explain": "laidiansetu",
+		  "explain": "来点色图",
 			"cmds":["ldst", "来点色图"]
 		}
 	]

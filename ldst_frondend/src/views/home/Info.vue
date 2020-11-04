@@ -6,6 +6,7 @@
         <el-page-header @back="goBack" :content="title"></el-page-header>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <el-carousel type="card" width="890px" height="1000px" :autoplay="false">
       <el-carousel-item v-for="item in list" :key="item.id">
         <img :src="url+item.imgUrl" />
@@ -31,7 +32,6 @@
 </template>
 
 <script>
-// import { online } from "@/api/user";
 export default {
   data() {
     return {
