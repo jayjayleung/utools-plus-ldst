@@ -3,6 +3,7 @@ package com.jayjay.ldst.util;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -100,8 +101,20 @@ public class HttpClientUtil {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(url);
         setConfig2Img(httpGet);
-        CloseableHttpResponse response = httpClient.execute(httpGet);
-        String value = response.getEntity().getContentType().getValue().split("/")[1];
+        CloseableHttpResponse response = null;
+        try {
+            response = httpClient.execute(httpGet);
+        }catch (Exception e){
+            System.out.println(url);
+            e.printStackTrace();
+        }
+        String value = "jpg";
+        try {
+            value = response.getEntity().getContentType().getValue().split("/")[1];
+        }catch (ArrayIndexOutOfBoundsException e){
+            value = url.substring(url.lastIndexOf(".")+1);
+        }
+
 //        System.out.println(value);
         String uuid = UUID.randomUUID().toString();
         String fileName = uuid+"."+value;

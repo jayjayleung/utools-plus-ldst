@@ -58,6 +58,7 @@ public class ReptilesServiceImpl implements ReptilesService {
         String result = HttpClientUtil.get(LdstUrl.HOME);
         logger.info("开始爬取最新数据......");
         Document doc = Jsoup.parse(result);
+        System.out.println(doc.html());
         Elements newList = doc.select("body > div.main > div > div:nth-child(3) > div.tab_zt > div > div > ul").select("li");
         List<LdstCover> ldstCovers = this.doReptiles(newList);
         ldstCovers.forEach(item->item.setNewest(true));

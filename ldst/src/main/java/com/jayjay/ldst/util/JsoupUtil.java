@@ -14,13 +14,13 @@ import org.jsoup.select.Elements;
 public class JsoupUtil {
 
 
-
     /**
      * 获取标题
+     *
      * @param html
      * @return
      */
-    public static String getTitle(String html){
+    public static String getTitle(String html) {
         Document doc = Jsoup.parse(html);
         String title = doc.select("a > p").first().text();
         return title;
@@ -29,21 +29,23 @@ public class JsoupUtil {
 
     /**
      * 获取封面url
+     *
      * @param html
      * @return
      */
-    public static String getCoverUrl(String html){
+    public static String getCoverUrl(String html) {
         Document doc = Jsoup.parse(html);
-        String url = doc.select("a > img").first().attr("data-original");
+        String url = doc.select("a > img").first().attr("data-src");
         return url;
     }
 
     /**
      * 获取详情页url
+     *
      * @param html
      * @return
      */
-    public static String getDetailUrl(String html){
+    public static String getDetailUrl(String html) {
         Document doc = Jsoup.parse(html);
         String url = doc.select("a").first().attr("href");
         return url;
@@ -51,10 +53,11 @@ public class JsoupUtil {
 
     /**
      * 获取发布时间
+     *
      * @param html
      * @return
      */
-    public static String getDate(String html){
+    public static String getDate(String html) {
         Document doc = Jsoup.parse(html);
         String time = doc.select(".Bigimg_style > .time").first().text();
         return time;
@@ -62,39 +65,42 @@ public class JsoupUtil {
 
     /**
      * 获取封面总页码数
+     *
      * @param html
      * @return
      */
-    public static Integer getCoverPageNumber(String html){
+    public static Integer getCoverPageNumber(String html) {
         Document doc = Jsoup.parse(html);
 //        System.out.println(html);
         Element select = doc.select(".pages .num").last();
-        String number = select.text();
-        return StringUtils.isNotEmpty(number)?Integer.valueOf(number):0;
+        String number = select != null ? select.text() : "0";
+        return StringUtils.isNotEmpty(number) ? Integer.valueOf(number) : 0;
     }
 
     /**
      * 获取详情页码数
+     *
      * @param html
      * @return
      */
-    public static Integer getDetailPageNumber(String html){
+    public static Integer getDetailPageNumber(String html) {
         Document doc = Jsoup.parse(html);
         Element select = doc.select(".ptitle > em").first();
-        String number = select.text();
-        return StringUtils.isNotEmpty(number)?Integer.valueOf(number):0;
+        String number = select != null ? select.text() : "0";
+        return StringUtils.isNotEmpty(number) ? Integer.valueOf(number) : 0;
     }
 
     /**
      * 获取图片大小
+     *
      * @param html
      * @return
      */
-    public static String getDetailImgSize(String html){
+    public static String getDetailImgSize(String html) {
         Document doc = Jsoup.parse(html);
         Element select = doc.select(".Bigimg_style > .size").first();
-        String number = select.text();
-        if(StringUtils.isNotEmpty(number)){
+        String number = select != null ? select.text() : "0";
+        if (StringUtils.isNotEmpty(number)) {
             number = number.split("：")[1];
         }
         return number;
@@ -102,10 +108,11 @@ public class JsoupUtil {
 
     /**
      * 获取图片类型
+     *
      * @param html
      * @return
      */
-    public static String getDetailType(String html){
+    public static String getDetailType(String html) {
         Document doc = Jsoup.parse(html);
         Element select = doc.select(".breadcrumbs > a").last();
         String type = select.text();
@@ -114,13 +121,14 @@ public class JsoupUtil {
 
     /**
      * 获取详情图片Url
+     *
      * @param html
      * @return
      */
-    public static String getDetailImgUrl(String html){
+    public static String getDetailImgUrl(String html) {
         Document doc = Jsoup.parse(html);
         Element select = doc.select(".pic-large").first();
-        String url = select.attr("data-original");
+        String url = select.attr("src");
         return url;
     }
 }
